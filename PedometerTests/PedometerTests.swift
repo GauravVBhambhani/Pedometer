@@ -80,7 +80,7 @@ class PedometerTests: XCTestCase {
         
             switch result{
             case .success:
-                XCTFail("Expected Failure, got Success - pt2")
+                XCTFail("Expected Failure, got Success")
             
             case .failure(let error):
                 XCTAssertEqual(error.localizedDescription, mockError.localizedDescription)

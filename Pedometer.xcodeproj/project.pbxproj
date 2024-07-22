@@ -18,6 +18,7 @@
 		106AC2C32C4ECB3100F5EAEA /* PedometerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106AC2C22C4ECB3100F5EAEA /* PedometerUITests.swift */; };
 		106AC2C52C4ECB3100F5EAEA /* PedometerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106AC2C42C4ECB3100F5EAEA /* PedometerUITestsLaunchTests.swift */; };
 		106AC2CC2C4ED96000F5EAEA /* MockPedometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106AC2CB2C4ED96000F5EAEA /* MockPedometer.swift */; };
+		106AC2CE2C4F04AD00F5EAEA /* ReminderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106AC2CD2C4F04AD00F5EAEA /* ReminderModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		106AC2C22C4ECB3100F5EAEA /* PedometerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedometerUITests.swift; sourceTree = "<group>"; };
 		106AC2C42C4ECB3100F5EAEA /* PedometerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedometerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		106AC2CB2C4ED96000F5EAEA /* MockPedometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPedometer.swift; sourceTree = "<group>"; };
+		106AC2CD2C4F04AD00F5EAEA /* ReminderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				106AC2AB2C4EBE5A00F5EAEA /* PedometerModel.swift */,
+				106AC2CD2C4F04AD00F5EAEA /* ReminderModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				106AC2AC2C4EBE5A00F5EAEA /* PedometerModel.swift in Sources */,
 				106AC25B2C4DAD2A00F5EAEA /* PedometerViewModel.swift in Sources */,
 				100F6C8A2C4D9C7400BF50D1 /* PedometerApp.swift in Sources */,
+				106AC2CE2C4F04AD00F5EAEA /* ReminderModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
