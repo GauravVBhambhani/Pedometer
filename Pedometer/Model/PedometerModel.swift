@@ -8,9 +8,16 @@
 import Foundation
 import CoreMotion
 
+
 class PedometerModel {
     
     private var pedometer = CMPedometer()
+    
+    // modifying PedometerModel to accept a (mock)CMPedometer instance through initializer. (Dependency Injection)
+    
+    init(pedometer: CMPedometer = CMPedometer()) {
+        self.pedometer = pedometer
+    }
     
     func startPedometerUpdates(completion: @escaping (Result<(steps: Int, distance: Double), Error>) -> Void) {
         if CMPedometer.isStepCountingAvailable() {

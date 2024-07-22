@@ -27,6 +27,7 @@ struct ContentView: View {
                 Text(String(format: "Distance: %.2f meters", viewModel.distance))
                     .font(.title)
                     .padding()
+                
             }
         }
         .onAppear {
