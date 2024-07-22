@@ -11,6 +11,8 @@
 		100F6C8C2C4D9C7400BF50D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100F6C8B2C4D9C7400BF50D1 /* ContentView.swift */; };
 		100F6C8E2C4D9C7500BF50D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 100F6C8D2C4D9C7500BF50D1 /* Assets.xcassets */; };
 		100F6C912C4D9C7500BF50D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 100F6C902C4D9C7500BF50D1 /* Preview Assets.xcassets */; };
+		106AC25B2C4DAD2A00F5EAEA /* PedometerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106AC25A2C4DAD2A00F5EAEA /* PedometerViewModel.swift */; };
+		106AC2AC2C4EBE5A00F5EAEA /* PedometerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106AC2AB2C4EBE5A00F5EAEA /* PedometerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		100F6C8B2C4D9C7400BF50D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		100F6C8D2C4D9C7500BF50D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		100F6C902C4D9C7500BF50D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		106AC25A2C4DAD2A00F5EAEA /* PedometerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedometerViewModel.swift; sourceTree = "<group>"; };
+		106AC2AB2C4EBE5A00F5EAEA /* PedometerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedometerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				100F6C892C4D9C7400BF50D1 /* PedometerApp.swift */,
-				100F6C8B2C4D9C7400BF50D1 /* ContentView.swift */,
+				106AC2AA2C4EBE4700F5EAEA /* Model */,
+				106AC28C2C4DF74500F5EAEA /* ViewModel */,
+				106AC28B2C4DF73800F5EAEA /* View */,
 				100F6C8D2C4D9C7500BF50D1 /* Assets.xcassets */,
 				100F6C8F2C4D9C7500BF50D1 /* Preview Content */,
 			);
@@ -65,6 +71,30 @@
 				100F6C902C4D9C7500BF50D1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		106AC28B2C4DF73800F5EAEA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				100F6C8B2C4D9C7400BF50D1 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		106AC28C2C4DF74500F5EAEA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				106AC25A2C4DAD2A00F5EAEA /* PedometerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		106AC2AA2C4EBE4700F5EAEA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				106AC2AB2C4EBE5A00F5EAEA /* PedometerModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +168,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				100F6C8C2C4D9C7400BF50D1 /* ContentView.swift in Sources */,
+				106AC2AC2C4EBE5A00F5EAEA /* PedometerModel.swift in Sources */,
+				106AC25B2C4DAD2A00F5EAEA /* PedometerViewModel.swift in Sources */,
 				100F6C8A2C4D9C7400BF50D1 /* PedometerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +307,9 @@
 				DEVELOPMENT_TEAM = 73923FA922;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pedometer/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Need location :)";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Need motion data to track step count :)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +339,9 @@
 				DEVELOPMENT_TEAM = 73923FA922;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pedometer/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Need location :)";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Need motion data to track step count :)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

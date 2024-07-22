@@ -9,33 +9,29 @@ import Foundation
 import CoreMotion
 
 class PedometerViewModel: ObservableObject {
-    private var pedometer = CMPedometer()
+    
+    private var pedometerModel = PedometerModel()
+    
     @Published var steps: Int = 0
     @Published var distance: Double = 0.0
+    @Published var errorMessage: String? = nil
     
     init() {
         startPedometer()
     }
     
     func startPedometer() {
-        if CMPedometer.isStepCountingAvailable() {
-            pedometer.startUpdates(from: Date()) { [weak self] (data, error) in
-                guard let self = self else { return }
-                
-                if let error = error {
-                    print("Pedometer error: \(error.localizedDescription)")
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    self.steps = data?.numberOfSteps.intValue ?? 0
-                    if let distance = data?.distance {
-                        self.distance = distance.doubleValue
-                    }
+        pedometerModel.startPedometerUpdates{ [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data):
+                    self?.steps = data.steps
+                    self?.distance = data.distance
+                    
+                case .failure(let error):
+                    self?.errorMessage = error.localizedDescription
                 }
             }
-        } else {
-            print("Step counting not available")
         }
     }
 }

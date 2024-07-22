@@ -8,17 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @StateObject var viewModel = PedometerViewModel()
     
     var body: some View {
         VStack {
-            Text("Steps: \(viewModel.steps)")
-                .font(.largeTitle)
-                .padding()
             
-            Text(String(format: "Distance: %.2f meters", viewModel.distance))
-                .font(.title)
-                .padding()
+            if let errorMessage = viewModel.errorMessage {
+                Text(errorMessage)
+                    .foregroundColor(.red)
+                    .padding()
+            } else {
+                
+                Text("Steps: \(viewModel.steps)")
+                    .font(.largeTitle)
+                    .padding()
+                
+                Text(String(format: "Distance: %.2f meters", viewModel.distance))
+                    .font(.title)
+                    .padding()
+            }
         }
         .onAppear {
             viewModel.startPedometer()
