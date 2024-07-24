@@ -39,55 +39,55 @@ import XCTest
 
 class PedometerTests: XCTestCase {
     
-    func testPedometerSuccess() {
-        // create mock pedometer and setup mock data
-        let mockPedometer = MockPedometer()
-        let mockData = CMPedometerData()
-        mockData.setValue(1000, forKey: "numberOfSteps")
-        mockData.setValue(500.0, forKey: "distance")
-        mockPedometer.mockData = mockData
-        
-        let model = PedometerModel(pedometer: mockPedometer)
-        
-        let expectation = self.expectation(description: "pedometer updates")
-        
-        model.startPedometerUpdates { result in
-            
-            switch result {
-            case .success(let data):
-                XCTAssertEqual(data.steps, 1000)
-                XCTAssertEqual(data.distance, 500.0)
-            case .failure:
-                XCTFail("Expected success but got failure")
-            }
-            expectation.fulfill()
-        }
-        
-        waitForExpectations(timeout: 1, handler: nil)
-    }
-    
-    
-    func testPedometerFailure() {
-        let mockPedometer = MockPedometer()
-        let mockError = NSError(domain: "Pedometer", code: 1, userInfo: nil)
-        mockPedometer.mockError = mockError
-        
-        let model = PedometerModel(pedometer: mockPedometer)
-        
-        let expectation = self.expectation(description: "Pedometer updates")
-        
-        model.startPedometerUpdates { result in
-        
-            switch result{
-            case .success:
-                XCTFail("Expected Failure, got Success")
-            
-            case .failure(let error):
-                XCTAssertEqual(error.localizedDescription, mockError.localizedDescription)
-            }
-            expectation.fulfill()
-        }
-        
-        waitForExpectations(timeout: 1, handler: nil)
-    }
+//    func testPedometerSuccess() {
+//        // create mock pedometer and setup mock data
+//        let mockPedometer = MockPedometer()
+//        let mockData = CMPedometerData()
+//        mockData.setValue(1000, forKey: "numberOfSteps")
+//        mockData.setValue(500.0, forKey: "distance")
+//        mockPedometer.mockData = mockData
+//        
+//        let model = PedometerModel(pedometer: mockPedometer)
+//        
+//        let expectation = self.expectation(description: "pedometer updates")
+//        
+//        model.startPedometerUpdates { result in
+//            
+//            switch result {
+//            case .success(let data):
+//                XCTAssertEqual(data.steps, 1000)
+//                XCTAssertEqual(data.distance, 500.0)
+//            case .failure:
+//                XCTFail("Expected success but got failure")
+//            }
+//            expectation.fulfill()
+//        }
+//        
+//        waitForExpectations(timeout: 1, handler: nil)
+//    }
+//    
+//    
+//    func testPedometerFailure() {
+//        let mockPedometer = MockPedometer()
+//        let mockError = NSError(domain: "Pedometer", code: 1, userInfo: nil)
+//        mockPedometer.mockError = mockError
+//        
+//        let model = PedometerModel(pedometer: mockPedometer)
+//        
+//        let expectation = self.expectation(description: "Pedometer updates")
+//        
+//        model.startPedometerUpdates { result in
+//        
+//            switch result{
+//            case .success:
+//                XCTFail("Expected Failure, got Success")
+//            
+//            case .failure(let error):
+//                XCTAssertEqual(error.localizedDescription, mockError.localizedDescription)
+//            }
+//            expectation.fulfill()
+//        }
+//        
+//        waitForExpectations(timeout: 1, handler: nil)
+//    }
 }

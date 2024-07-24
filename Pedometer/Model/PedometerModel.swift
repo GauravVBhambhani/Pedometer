@@ -18,20 +18,40 @@ class PedometerModel {
     init(pedometer: CMPedometer = CMPedometer()) {
         self.pedometer = pedometer
     }
+//    
+//    func startPedometerUpdates(completion: @escaping (Result<(steps: Int, distance: Double), Error>) -> Void) {
+//        if CMPedometer.isStepCountingAvailable() {
+//            pedometer.startUpdates(from: Date()) { data, error in
+//                if let error = error {
+//                    completion(.failure(error))
+//                } else {
+//                    let steps = data?.numberOfSteps.intValue ?? 0
+//                    let distance = data?.distance?.doubleValue ?? 0.0
+//                    completion(.success((steps, distance)))
+//                }
+//            }
+//        } else {
+//            completion(.failure(NSError(domain: "Pedometer", code: 0, userInfo: [NSLocalizedDescriptionKey: "step count not available"])))
+//        }
+//    }
     
-    func startPedometerUpdates(completion: @escaping (Result<(steps: Int, distance: Double), Error>) -> Void) {
-        if CMPedometer.isStepCountingAvailable() {
-            pedometer.startUpdates(from: Date()) { data, error in
-                if let error = error {
-                    completion(.failure(error))
-                } else {
-                    let steps = data?.numberOfSteps.intValue ?? 0
-                    let distance = data?.distance?.doubleValue ?? 0.0
-                    completion(.success((steps, distance)))
+    func startPedometerUpdates() async throws -> (steps: Int, distance: Double) {
+        return try await withCheckedThrowingContinuation { continuation in
+            
+            if CMPedometer.isStepCountingAvailable() {
+                pedometer.startUpdates(from: Date()) { data, error in
+                    if let error = error {
+                        continuation.resume(throwing: error)
+                    } else {
+                        let steps = data?.numberOfSteps.intValue ?? 0
+                        let distance = data?.distance?.doubleValue ?? 0.0
+                        
+                        continuation.resume(returning: (steps, distance))
+                    }
                 }
+            } else {
+                continuation.resume(throwing: NSError(domain: "Pedometer", code: 1, userInfo: [NSLocalizedDescriptionKey:"Pedometr not available on device."]))
             }
-        } else {
-            completion(.failure(NSError(domain: "Pedometer", code: 0, userInfo: [NSLocalizedDescriptionKey: "step count not available"])))
         }
     }
 }
